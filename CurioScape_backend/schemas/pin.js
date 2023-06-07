@@ -16,7 +16,7 @@ export default {
       {
         name: 'destination',
         title: 'Destination',
-        type: 'url',
+        type: 'url',//field expects a URL value
       },
       {
         name: 'category',
@@ -26,9 +26,9 @@ export default {
       {
         name: 'image',
         title: 'Image',
-        type: 'image',
+        type: 'image',//expects an image value
         options: {
-          hotspot: true,
+          hotspot: true,//crop option
         },
       },
       {
@@ -39,7 +39,7 @@ export default {
       {
         name: 'postedBy',
         title: 'PostedBy',
-        type: 'postedBy',
+        type: 'postedBy',//reference to another object called 'postedBy'.
       },
       {
         name: 'save',
