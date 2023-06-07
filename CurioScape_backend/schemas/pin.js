@@ -45,13 +45,13 @@ export default {
         name: 'save',
         title: 'Save',
         type: 'array',
-        of: [{ type: 'save' }],
+        of: [{ type: 'save' }],//'of' property is reference to another object called 'save'.
       },
       {
         name: 'comments',
         title: 'Comments',
         type: 'array',
-        of: [{ type: 'comment' }],
+        of: [{ type: 'comment' }],//'of' property is referencing another object called 'comment'
       },
     ],
   };
