@@ -2,6 +2,7 @@ import React from 'react'
 import shareVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
 import {FcGoogle} from 'react-icons/fc';
+import { useNavigate } from 'react-router-dom';
 
 /*
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
@@ -18,7 +19,25 @@ const Login = () => {
     h-screen => This sets the height of the container to fill the entire screen.
     relative => <div> element represents a relative-positioned container within the parent container. 
     */
-  return (
+
+    const responseGoogle = (response) => {
+        const navigate = useNavigate();
+
+        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        const {name, googleId, imageUrl} = response.profileObj;
+        const doc = {
+            _id: googleId,
+            _type: 'user',
+            userName: name,
+            image: imageUrl,
+        };//doc
+
+        client.createIfNotExists(doc).then(() => {
+            navigate('/', {replace : true});
+        });
+    };//responseGoogle
+
+    return (
     <div className="flex justify-start items-center flex-col h-screen">
         <div className="relative w-full h-full">
             {/*displays video*/}
@@ -33,7 +52,6 @@ const Login = () => {
             />
 
             <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
-                
                 {/*displays logo*/}
                 <div className="p-5">
                     <img src={logo} width="130px"/>
@@ -41,6 +59,10 @@ const Login = () => {
 
                 {/*displays google login button*/}
                 <div className="shadow-2xl">
+
+                    {/*
+                    
+                    */}
                     <GoogleLogin
                         clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
                         render={(renderProps) => (
