@@ -50,6 +50,8 @@ const Login = () => {
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
         client.createIfNotExists(doc).then(() => {
+
+            //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
             navigate('/', {replace : true});
         });
     };//responseGoogle
