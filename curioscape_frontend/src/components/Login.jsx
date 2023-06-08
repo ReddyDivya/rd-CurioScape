@@ -5,9 +5,10 @@ import logo from "../assets/logowhite.png";
 const Login = () => {
     /*
     object-cover => class ensures the video retains its aspect ratio while covering the entire container.
-    justify-start: This aligns the contents to the start of the container horizontally.
-    items-center: This centers the contents vertically within the container.
-    h-screen: This sets the height of the container to fill the entire screen.
+    justify-start => This aligns the contents to the start of the container horizontally.
+    items-center => This centers the contents vertically within the container.
+    h-screen => This sets the height of the container to fill the entire screen.
+    relative => <div> element represents a relative-positioned container within the parent container. 
     */
   return (
     <div className="flex justify-start items-center flex-col h-screen">
