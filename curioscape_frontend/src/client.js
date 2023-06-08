@@ -12,11 +12,12 @@ export const client = createClient({
 
   //options
   //process.env => environment variables
-  projectId : process.env.REACT_APP_SANITY_PROJECT_ID,
+  //projectId : process.env.REACT_APP_SANITY_PROJECT_ID,
+  projectId : 'x8qy9fhj',
   dataset:'production',
   apiVersion:'2023-06-08',
   useCdn:true,
-  token:process.env.REACT_APP_SANITY_TOKEN,  
+  token:'skrjNorV7RfBxgvfXg8pJ6ERkDllg1CY1bcZIVclN5MiXAM12n0t2ujRql0Ucjc5gNISay0v9gKVGWvU34REczhqrcs3jR0LKCOV42h20KWS4aZb1B2sGWOL704u40eiHQAJNOLYlnO9jC1l3SasoYKMGdW6tflMpGNFENekAEzYK57uyWdP',  
 })
 
 //creates an image URL builder instance by invoking the imageUrlBuilder function and passing in the client instance created in the previous step.
