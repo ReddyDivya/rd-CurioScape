@@ -24,3 +24,9 @@ const builder = imageUrlBuilder(client);
 
 //named export 'urlFor', which is a function that takes a source argument representing the image asset or reference in your Sanity.io project
 export const urlFor = (source) => builder.image(source);
+
+/*
+Note:
+When called, the urlFor function utilizes the builder instance to generate the URL for the specified image source. 
+The generated URL can be used to display or manipulate the image in your React application.
+*/
