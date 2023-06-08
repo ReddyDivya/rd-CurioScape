@@ -25,7 +25,7 @@ const Login = () => {
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = (response) => {
-        const navigate = useNavigate();
+        const navigate = useNavigate();//navigate to different pages within a React application.
 
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
