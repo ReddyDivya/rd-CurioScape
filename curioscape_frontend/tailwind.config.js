@@ -112,6 +112,9 @@ Notes:
 Step 1: Above are the customized css properties.
 Step 2: To use the customized values in your application.
 Step 3: Assuming the configuration object is defined in a file called styles.js, you can import it into your application file
-        const styles = require('./styles.js');
-Step 4: 
+Step 4: Can access the customized values from the 'styles' object.
+        For example, let's say you want to use the customized width value of 190px in your application:
+        ---------------------------------------------------------------------------------------
+        const widthValue = styles.theme.extend.width['190'];
+        console.log(widthValue); // Output: 190px
 */
