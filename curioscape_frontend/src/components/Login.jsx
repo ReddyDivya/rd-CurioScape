@@ -22,6 +22,7 @@ const Login = () => {
 
     /*
     responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
+    saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = (response) => {
         const navigate = useNavigate();
@@ -35,7 +36,7 @@ const Login = () => {
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, googleId, imageUrl} = response.profileObj;
 
-        
+        //creates an object 'doc' with properties _id, _type, userName, and image. 
         const doc = {
             _id: googleId,
             _type: 'user',
@@ -43,6 +44,11 @@ const Login = () => {
             image: imageUrl,
         };//doc
 
+        /*
+        uses the 'client' instance to create a new document in your Sanity.io project, representing the user.
+        createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
+        After the document is created, it uses the navigate function, to navigate to the home page ('/')
+        */
         client.createIfNotExists(doc).then(() => {
             navigate('/', {replace : true});
         });
