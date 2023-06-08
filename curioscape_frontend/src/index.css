@@ -11,4 +11,11 @@
     */
     font-family: 'Lato', sans-serif;
   }
+
+  /* Hide scrollbar in web browsers that use the WebKit engine for Chrome, Safari and Opera */
+  /*::-webkit-scrollbar that represents the scrollbar in WebKit browsers*/
+  .hide-scrollbar::-webkit-scrollbar
+  {
+    display: none;
+  }
 }
