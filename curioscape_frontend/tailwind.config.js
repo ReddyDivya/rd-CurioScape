@@ -27,6 +27,51 @@ module.exports = {
         800: '800px',
         '90vh': '90vh',
       },
+      flex:{
+        0.7: '0.7 1 0%',
+      },
+      maxHeight:{
+        370:'370px',
+      },
+      minWidth:{
+        210: '210px',
+        350: '350px',
+        620: '620px',
+      },
+      textColor: {
+        lightGray: '#F1EFEE',
+        primary: '#FAFAFA',
+        secColor: '#efefef',
+        navColor: '#BEBEBE',
+      },
+      backgroundColor: {
+        mainColor: '#FBF8F9',
+        secondaryColor: '#F0F0F0',
+        blackOverlay: 'rgba(0, 0 ,0 ,0.7)',
+      },
+      keyframes: {
+        'slide-in': {
+          '0%': {
+            '-webkit-transform': 'translateX(-200px)',
+            transform: 'translateX(-200px)',
+          },
+          '100%': {
+            '-webkit-transform': 'translateX(0px)',
+            transform: 'translateX(0px)',
+          },
+        },//slide-in
+
+        'slide-fwd': {
+          '0%': {
+            '-webkit-transform': 'translateZ(0px)',
+            transform: 'translateZ(0px)',
+          },
+          '100%': {
+            '-webkit-transform': 'translateZ(160px)',
+            transform: 'translateZ(160px)',
+          },
+        },//slide-fwd
+      },//keyframes
     },
   },
   plugins: [],
