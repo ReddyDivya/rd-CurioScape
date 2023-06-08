@@ -1,6 +1,8 @@
 import React from 'react'
 import shareVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
+import GoogleLogin from 'react-google-login';
+import {FcGoogle} from 'react-icons/fc';
 
 const Login = () => {
     /*
@@ -26,6 +28,10 @@ const Login = () => {
 
             <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
                 
+                {/*displays logo*/}
+                <div className="p-5">
+                    <img src={logo} width="130px"/>
+                </div>
             </div>
         </div>
     </div>
