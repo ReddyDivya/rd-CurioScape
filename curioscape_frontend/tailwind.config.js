@@ -94,7 +94,8 @@ module.exports = {
       },
     },//extend
 
-    cursor: {
+    cursor: //custom cursor values for different mouse cursor styles.
+    {
       'zoom-in': 'zoom-in',
       pointer: 'pointer',
     },
@@ -106,3 +107,11 @@ module.exports = {
   plugins: [],//include additional plugins or extensions to enhance the functionality of the CSS framework or library
 }
 
+/*
+Notes:
+Step 1: Above are the customized css properties.
+Step 2: To use the customized values in your application.
+Step 3: Assuming the configuration object is defined in a file called styles.js, you can import it into your application file
+        const styles = require('./styles.js');
+Step 4: 
+*/
