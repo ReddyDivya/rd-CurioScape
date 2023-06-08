@@ -82,7 +82,15 @@ module.exports = {
         height: 'height',
       },
     },//extend
+
+    cursor: {
+      'zoom-in': 'zoom-in',
+      pointer: 'pointer',
+    },
   },//theme
+  variants: {
+    extend: {},
+  },
   plugins: [],
 }
 
