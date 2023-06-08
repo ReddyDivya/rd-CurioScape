@@ -20,11 +20,22 @@ const Login = () => {
     relative => <div> element represents a relative-positioned container within the parent container. 
     */
 
+    /*
+    responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
+    */
     const responseGoogle = (response) => {
         const navigate = useNavigate();
 
+        /*
+        stores the 'profileObj' property of the response object in the browser's local storage.
+        he 'profileObj' contains the user's profile information obtained from Google after successful authentication.
+        */
         localStorage.setItem('user', JSON.stringify(response.profileObj));
+
+        //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, googleId, imageUrl} = response.profileObj;
+
+        
         const doc = {
             _id: googleId,
             _type: 'user',
