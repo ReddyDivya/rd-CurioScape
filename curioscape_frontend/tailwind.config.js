@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {
+  theme: 
+  {
+    extend: 
+    {
       margin:{
         320:'320px',
       },
@@ -72,8 +74,15 @@ module.exports = {
           },
         },//slide-fwd
       },//keyframes
-    },
-  },
+      animation: {
+        'slide-in': 'slide-in 0.5s ease-out',
+        'slide-fwd': ' slide-fwd 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+      },
+      transitionProperty: {
+        height: 'height',
+      },
+    },//extend
+  },//theme
   plugins: [],
 }
 
