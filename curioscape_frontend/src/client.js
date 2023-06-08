@@ -1,4 +1,7 @@
+//createClient function is used to create a client instance that can interact with the Sanity.io API
 import { createClient } from "@sanity/client";
+
+//imageUrlBuilder function is used to create an image URL builder instance, which helps in constructing URLs for images stored in your Sanity.io project
 import imageUrlBuilder from "@sanity/image-url";
 
 export const client = createClient({
