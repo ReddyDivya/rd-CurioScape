@@ -3,6 +3,7 @@ import shareVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
 import {FcGoogle} from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
+import { client } from '../client';
 
 /*
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
@@ -19,13 +20,14 @@ const Login = () => {
     h-screen => This sets the height of the container to fill the entire screen.
     relative => <div> element represents a relative-positioned container within the parent container. 
     */
+    
+    const navigate = useNavigate();//navigate to different pages within a React application.
 
     /*
     responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = (response) => {
-        const navigate = useNavigate();//navigate to different pages within a React application.
 
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
@@ -93,6 +95,9 @@ const Login = () => {
                                 <FcGoogle className="mr-4" /> Sign in with google
                             </button>
                         )}
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy="single_host_origin"
                     />    
                 </div>
             </div>
