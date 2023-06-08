@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/*@layer base directive is used to define styles that should be applied as a base layer*/
 @layer base{
   body{
+    /*
+    font family used for the entire body of the document will be 'Lato'
+    with fallback to a 'sans-serif' font if 'Lato' is not available.
+    */
     font-family: 'Lato', sans-serif;
   }
 }
