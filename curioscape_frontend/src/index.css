@@ -12,10 +12,18 @@
     font-family: 'Lato', sans-serif;
   }
 
-  /* Hide scrollbar in web browsers that use the WebKit engine for Chrome, Safari and Opera */
-  /*::-webkit-scrollbar that represents the scrollbar in WebKit browsers*/
+  /* Hide scrollbar in web browsers that use the WebKit engine for Chrome, Safari and Opera 
+  ::-webkit-scrollbar that represents the scrollbar in WebKit browsers
+  By applying the '.hide-scrollbar' class to an element, the scrollbar will be visually hidden in Chrome, Safari and Opera.*/
   .hide-scrollbar::-webkit-scrollbar
   {
     display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  /*By applying the '.hide-scrollbar' class to an element, the scrollbar will be visually hidden in Internet Explorer, Microsoft Edge, and Firefox.*/
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* hides the scrollbar in IE and Edge */
+    scrollbar-width: none;  /* hides the scrollbar in Firefox */
   }
 }
