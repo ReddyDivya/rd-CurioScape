@@ -12,7 +12,6 @@ export const client = createClient({
 
   //options
   //process.env => environment variables
-  //projectId : process.env.REACT_APP_SANITY_PROJECT_ID,
   projectId : 'x8qy9fhj',
   dataset:'production',
   apiVersion:'2023-06-08',
