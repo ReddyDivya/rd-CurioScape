@@ -8,8 +8,7 @@ import { client } from '../client';
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
 GoogleLogin component is used to render a Google Sign-In button and handle the authentication process with Google.
 */
-import GoogleLogin from '@leecheuk/react-google-login';
-
+import GoogleLogin from 'react-google-login';
 
 const Login = () => {
     /*
@@ -85,7 +84,7 @@ const Login = () => {
                     
                     */}
                     <GoogleLogin
-                        clientId='913338086499-fkncsqfhp3ms85u3geusvpvnd6m8ackh.apps.googleusercontent.com'
+                        clientId='913338086499-kpva56bgvenc7c34m3e032fad37164i8.apps.googleusercontent.com'
                         render={(renderProps) => (
                             <button type="button"
                             className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
