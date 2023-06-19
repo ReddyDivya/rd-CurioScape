@@ -4,6 +4,7 @@ import logo from "../assets/logowhite.png";
 import {FcGoogle} from 'react-icons/fc';//google icon
 import { useNavigate } from 'react-router-dom';
 import { client } from '../client';
+import jwt_decode from 'jwt-decode';
 /*
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
 GoogleLogin component is used to render a Google Sign-In button and handle the authentication process with Google.
@@ -26,45 +27,38 @@ const Login = () => {
     responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
-    const responseGoogle = (response) => {
-        console.log('response >> '+ response);
-
-        // if (response.error === 'popup_closed_by_user') {
-        //     console.log('Google login popup was closed by the user');
-        //     // Handle the scenario where the user closed the popup without completing the login
-        // } else {
-        //     console.log(response);
-        //     // Handle other response scenarios, such as successful login
-        // }
+    const responseGoogle = async (response) => {
+        
+        const decodedResponse = jwt_decode(response.credential);
 
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
         'profileObj' contains the user's profile information obtained from Google after successful authentication.
         */
-        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        // localStorage.setItem('user', JSON.stringify(response.profileObj));
         
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
-        const {name, googleId, imageUrl} = response.profileObj;
-        console.log(name, googleId, imageUrl);
+        const {name, picture, sub} = decodedResponse;
+        console.log(name, picture, sub);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
-        // const doc = {
-        //     _id: googleId,
-        //     _type: 'user',
-        //     userName: name,
-        //     image: imageUrl,
-        // };//doc
+        const doc = {
+            _id: sub,
+            _type: 'user',
+            userName: name,
+            image: picture,
+        };//doc
 
         /*
         uses the 'client' instance to create a new document in your Sanity.io project, representing the user.
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        // client.createIfNotExists(doc).then(() => {
+        client.createIfNotExists(doc).then(() => {
 
-        //     //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
-        //     navigate('/', {replace : true});
-        // });
+            //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
+            navigate('/', {replace : true});
+        });
     };//responseGoogle
 
     return (
@@ -105,7 +99,7 @@ const Login = () => {
                     
                     */}
                     <GoogleLogin
-                        onSuccess={(response) => console.log(response.credential)}
+                        onSuccess={(response) => responseGoogle(response)}
                         onError={(response) => responseGoogle(response)}
                         cookiePolicy="single_host_origin"
                     />    
