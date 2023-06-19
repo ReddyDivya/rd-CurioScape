@@ -8,7 +8,7 @@ import { client } from '../client';
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
 GoogleLogin component is used to render a Google Sign-In button and handle the authentication process with Google.
 */
-import GoogleLogin from 'react-google-login';
+import {GoogleLogin} from 'react-google-login';
 
 const Login = () => {
     /*
@@ -28,34 +28,42 @@ const Login = () => {
     const responseGoogle = (response) => {
         console.log('response >> '+ JSON.stringify(response));
 
+        if (response.error === 'popup_closed_by_user') {
+            console.log('Google login popup was closed by the user');
+            // Handle the scenario where the user closed the popup without completing the login
+        } else {
+            console.log(response);
+            // Handle other response scenarios, such as successful login
+        }
+
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
         'profileObj' contains the user's profile information obtained from Google after successful authentication.
         */
-        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        // localStorage.setItem('user', JSON.stringify(response.profileObj));
         
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
-        const {name, googleId, imageUrl} = response.profileObj;
-        console.log(name, googleId, imageUrl);
+        // const {name, googleId, imageUrl} = response.profileObj;
+        // console.log(name, googleId, imageUrl);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
-        const doc = {
-            _id: googleId,
-            _type: 'user',
-            userName: name,
-            image: imageUrl,
-        };//doc
+        // const doc = {
+        //     _id: googleId,
+        //     _type: 'user',
+        //     userName: name,
+        //     image: imageUrl,
+        // };//doc
 
         /*
         uses the 'client' instance to create a new document in your Sanity.io project, representing the user.
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        client.createIfNotExists(doc).then(() => {
+        // client.createIfNotExists(doc).then(() => {
 
-            //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
-            navigate('/', {replace : true});
-        });
+        //     //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
+        //     navigate('/', {replace : true});
+        // });
     };//responseGoogle
 
     return (
@@ -106,8 +114,9 @@ const Login = () => {
                                 <FcGoogle className="mr-4" /> Sign in with google
                             </button>
                         )}
-                        data-onsuccess={responseGoogle}
+                        onSuccess={responseGoogle}
                         onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
                         // cookiePolicy="single_host_origin"
                     />    
                 </div>
