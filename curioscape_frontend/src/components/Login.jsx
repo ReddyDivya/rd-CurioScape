@@ -26,35 +26,36 @@ const Login = () => {
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = (response) => {
-        console.log('response >> '+ response);
+        console.log('response >> '+ JSON.stringify(response));
 
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
         'profileObj' contains the user's profile information obtained from Google after successful authentication.
         */
-        // localStorage.setItem('user', JSON.stringify(response.profileObj));
+        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
-        // const {name, googleId, imageUrl} = response.profileObj;
-        // console.log(name, googleId, imageUrl);
+        const {name, googleId, imageUrl} = response.profileObj;
+        console.log(name, googleId, imageUrl);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
-        // const doc = {
-        //     _id: googleId,
-        //     _type: 'user',
-        //     userName: name,
-        //     image: imageUrl,
-        // };//doc
+        const doc = {
+            _id: googleId,
+            _type: 'user',
+            userName: name,
+            image: imageUrl,
+        };//doc
 
         /*
         uses the 'client' instance to create a new document in your Sanity.io project, representing the user.
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        // client.createIfNotExists(doc).then(() => {
+        client.createIfNotExists(doc).then(() => {
 
-        //     //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
-        //     navigate('/', {replace : true});
-        // });
+            //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
+            navigate('/', {replace : true});
+        });
     };//responseGoogle
 
     return (
@@ -95,7 +96,7 @@ const Login = () => {
                     
                     */}
                     <GoogleLogin
-                        clientId='913338086499-kpva56bgvenc7c34m3e032fad37164i8.apps.googleusercontent.com'
+                        clientId='913338086499-9apvhk80qbsc0k226hrv0e83c0knb8q3.apps.googleusercontent.com'
                         render={(renderProps) => (
                             <button type="button"
                             className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
@@ -105,9 +106,9 @@ const Login = () => {
                                 <FcGoogle className="mr-4" /> Sign in with google
                             </button>
                         )}
-                        onSuccess={responseGoogle}
+                        data-onsuccess={responseGoogle}
                         onFailure={responseGoogle}
-                        cookiePolicy="single_host_origin"
+                        // cookiePolicy="single_host_origin"
                     />    
                 </div>
             </div>
