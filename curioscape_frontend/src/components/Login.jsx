@@ -83,15 +83,14 @@ const Login = () => {
             top-0 right-0 left-0 bottom-0: These are CSS classes that set the top, right, left, and bottom positions of the <div> to 0, making it cover the entire parent container.
             bg-blend-overlay: This is a CSS class used for background blending.
             */}
-            <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blend-overlay">
+            <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
                 {/*displays logo*/}
-                <div className="pt-15">
-                    <img src={logo} width="130px" alt="logo"/>
+                <div className="p-5">
+                    <img src={logo} width="130px" />
                 </div>
 
                 {/*displays google login button*/}
                 <div className="shadow-2xl">
-
                     {/*
                     
                     */}
