@@ -77,6 +77,12 @@ const Login = () => {
             className="w-full h-full object-cover"
             />
 
+            {/*
+            absolute: It's a CSS class that positions the element absolutely relative to its closest positioned ancestor.
+            flex flex-col justify-center items-center: These are CSS classes used for flexbox layout. They make the <div> a flex container with a column layout (flex-col), and the content inside the container will be both horizontally and vertically centered.
+            top-0 right-0 left-0 bottom-0: These are CSS classes that set the top, right, left, and bottom positions of the <div> to 0, making it cover the entire parent container.
+            bg-blend-overlay: This is a CSS class used for background blending.
+            */}
             <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blend-overlay">
                 {/*displays logo*/}
                 <div className="pt-15">
