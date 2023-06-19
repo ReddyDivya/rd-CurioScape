@@ -8,7 +8,8 @@ import { client } from '../client';
 react-google-login=> allows you to integrate Google Sign-In functionality into your React application.
 GoogleLogin component is used to render a Google Sign-In button and handle the authentication process with Google.
 */
-import {GoogleLogin} from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
 
 const Login = () => {
     /*
@@ -26,25 +27,25 @@ const Login = () => {
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = (response) => {
-        console.log('response >> '+ JSON.stringify(response));
+        console.log('response >> '+ response);
 
-        if (response.error === 'popup_closed_by_user') {
-            console.log('Google login popup was closed by the user');
-            // Handle the scenario where the user closed the popup without completing the login
-        } else {
-            console.log(response);
-            // Handle other response scenarios, such as successful login
-        }
+        // if (response.error === 'popup_closed_by_user') {
+        //     console.log('Google login popup was closed by the user');
+        //     // Handle the scenario where the user closed the popup without completing the login
+        // } else {
+        //     console.log(response);
+        //     // Handle other response scenarios, such as successful login
+        // }
 
         /*
         stores the 'profileObj' property of the response object in the browser's local storage.
         'profileObj' contains the user's profile information obtained from Google after successful authentication.
         */
-        // localStorage.setItem('user', JSON.stringify(response.profileObj));
+        localStorage.setItem('user', JSON.stringify(response.profileObj));
         
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
-        // const {name, googleId, imageUrl} = response.profileObj;
-        // console.log(name, googleId, imageUrl);
+        const {name, googleId, imageUrl} = response.profileObj;
+        console.log(name, googleId, imageUrl);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
         // const doc = {
@@ -104,20 +105,9 @@ const Login = () => {
                     
                     */}
                     <GoogleLogin
-                        clientId='913338086499-9apvhk80qbsc0k226hrv0e83c0knb8q3.apps.googleusercontent.com'
-                        render={(renderProps) => (
-                            <button type="button"
-                            className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
-                            onClick={renderProps.onClick}
-                            disabled={renderProps.disabled}
-                            >
-                                <FcGoogle className="mr-4" /> Sign in with google
-                            </button>
-                        )}
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                        // cookiePolicy="single_host_origin"
+                        onSuccess={(response) => console.log(response.credential)}
+                        onError={(response) => responseGoogle(response)}
+                        cookiePolicy="single_host_origin"
                     />    
                 </div>
             </div>
