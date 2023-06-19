@@ -32,32 +32,38 @@ const Login = () => {
         stores the 'profileObj' property of the response object in the browser's local storage.
         'profileObj' contains the user's profile information obtained from Google after successful authentication.
         */
-        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        // localStorage.setItem('user', JSON.stringify(response.profileObj));
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
-        const {name, googleId, imageUrl} = response.profileObj;
-        console.log(name, googleId, imageUrl);
+        // const {name, googleId, imageUrl} = response.profileObj;
+        // console.log(name, googleId, imageUrl);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
-        const doc = {
-            _id: googleId,
-            _type: 'user',
-            userName: name,
-            image: imageUrl,
-        };//doc
+        // const doc = {
+        //     _id: googleId,
+        //     _type: 'user',
+        //     userName: name,
+        //     image: imageUrl,
+        // };//doc
 
         /*
         uses the 'client' instance to create a new document in your Sanity.io project, representing the user.
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        client.createIfNotExists(doc).then(() => {
+        // client.createIfNotExists(doc).then(() => {
 
-            //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
-            navigate('/', {replace : true});
-        });
+        //     //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
+        //     navigate('/', {replace : true});
+        // });
     };//responseGoogle
 
     return (
+
+    /*
+    justify-content: flex-start property to align the flex items along the start of the main axis (horizontally).
+    h-screen: applies the CSS height: 100vh property to make the <div> fill the entire height of the screen.
+    align-items: center property to vertically center the flex items along the cross axis.
+    */
     <div className="flex justify-start items-center flex-col h-screen">
         <div className="relative w-full h-full">
             {/*displays video*/}
