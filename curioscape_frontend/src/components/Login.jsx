@@ -1,7 +1,7 @@
 import React from 'react'
 import shareVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
-import {FcGoogle} from 'react-icons/fc';
+import {FcGoogle} from 'react-icons/fc';//google icon
 import { useNavigate } from 'react-router-dom';
 import { client } from '../client';
 /*
