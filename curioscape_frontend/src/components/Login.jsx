@@ -70,10 +70,10 @@ const Login = () => {
             <video
             src={shareVideo}
             type="video/mp4"
-            // control={false}//disables the default video controls, the controls won't be displayed for the video.
-            autoPlay//enables the video to start playing automatically when the page loads
-            muted//mutes the video's audio
             loop//the video loop continuously
+            controls={false}//disables the default video controls, the controls won't be displayed for the video.
+            muted//mutes the video's audio
+            autoPlay//enables the video to start playing automatically when the page loads
             className="w-full h-full object-cover"
             />
 
