@@ -24,11 +24,28 @@ const Login = () => {
     const navigate = useNavigate();//navigate to different pages within a React application.
 
     /*
+    uploadImage takes a file as input, uploads it to Sanity using client.assets.upload, 
+    and returns the image reference in the required format.
+    */
+   const uploadImage = async (file) => {
+
+        const imageData = await client.assets.upload('image', file);
+        alert('imageData >> '+ imageData);
+
+        return {
+            _type: 'user',
+            asset: {
+                _ref: imageData._id,
+                _type: 'reference'
+            }
+        };
+    }//uploadImage
+
+    /*
     responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
     const responseGoogle = async (response) => {
-        
         const decodedResponse = jwt_decode(response.credential);
 
         /*
@@ -40,13 +57,17 @@ const Login = () => {
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, picture, sub} = decodedResponse;
         console.log(name, picture, sub);
+        
+        // Upload the image
+        const image = await uploadImage(picture);
+        alert('image >> '+ image)
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
         const doc = {
             _id: sub,
             _type: 'user',
             userName: name,
-            // image: picture,
+            image: image,
         };//doc
 
         /*
@@ -58,11 +79,12 @@ const Login = () => {
 
             //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
             navigate('/', {replace : true});
+            alert('created');
         });
+        
     };//responseGoogle
-
+    
     return (
-
     /*
     justify-content: flex-start property to align the flex items along the start of the main axis (horizontally).
     h-screen: applies the CSS height: 100vh property to make the <div> fill the entire height of the screen.
