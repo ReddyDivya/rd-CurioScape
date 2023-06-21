@@ -9,8 +9,8 @@ const App = () => {
 
   useEffect(() => {
     //fetching user info from the localstorage
-    const User = localStorage.getItem('user') !== 'undefined' 
-    ? JSON.parse(localStorage.getItem('user'))
+    const User = localStorage.getItem('user') !== 'undefined'
+    ? JSON.parse(localStorage.getItem('user')) 
     : localStorage.clear();
 
     //if user info doesn't exists from the localstorage, then navigate to login
