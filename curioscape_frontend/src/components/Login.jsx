@@ -24,24 +24,6 @@ const Login = () => {
     const navigate = useNavigate();//navigate to different pages within a React application.
 
     /*
-    uploadImage takes a file as input, uploads it to Sanity using client.assets.upload, 
-    and returns the image reference in the required format.
-    */
-   const uploadImage = async (file) => {
-
-        const imageData = await client.assets.upload('image', file);
-        console.log('imageData >> '+ imageData);
-
-        return {
-            _type: 'user',
-            asset: {
-                _ref: imageData._id,
-                _type: 'reference'
-            }
-        };
-    }//uploadImage
-
-    /*
     responseGoogle that handles the response from Google after a user signs in using the GoogleLogin component.
     saves the user's profile information to the browser's local storage, creates a new user document in your Sanity.io project if it doesn't already exist, and navigates to the home page afterward.
     */
@@ -56,14 +38,6 @@ const Login = () => {
         
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, picture, sub} = decodedResponse;
-        alert(name);
-        alert(picture);
-        alert(sub);
-        // console.log('picture >> '+ picture);
-
-        // Upload the image
-        // const image = await uploadImage(picture);
-        // console.log('uploadImage >> '+ image);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
         const doc = {
@@ -82,7 +56,6 @@ const Login = () => {
         await client.create(doc).then(() => {
             //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
             navigate('/', {replace : true});
-            alert('created');
         });
     };//responseGoogle
     
