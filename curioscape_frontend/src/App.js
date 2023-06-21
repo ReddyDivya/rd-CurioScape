@@ -7,6 +7,13 @@ import Home from './container/Home';
 const App = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    //fetching user info from the localstorage
+    const User = localStorage.getItem('user') !== 'undefined' 
+    ? JSON.parse(localStorage.getItem('user'))
+    : localStorage.clear();
+  }, [])
+
   return (
     <GoogleOAuthProvider clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'>
       <Routes>
