@@ -30,7 +30,7 @@ const Login = () => {
    const uploadImage = async (file) => {
 
         const imageData = await client.assets.upload('image', file);
-        alert('imageData >> '+ imageData);
+        console.log('imageData >> '+ imageData);
 
         return {
             _type: 'user',
@@ -57,17 +57,18 @@ const Login = () => {
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, picture, sub} = decodedResponse;
         console.log(name, picture, sub);
-        
+        // console.log('picture >> '+ picture);
+
         // Upload the image
-        const image = await uploadImage(picture);
-        alert('image >> '+ image)
+        // const image = await uploadImage(picture);
+        // console.log('uploadImage >> '+ image);
 
         //creates an object 'doc' with properties _id, _type, userName, and image. 
         const doc = {
             _id: sub,
             _type: 'user',
             userName: name,
-            image: image,
+            image: picture,
         };//doc
 
         /*
@@ -75,13 +76,12 @@ const Login = () => {
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        client.createIfNotExists(doc).then(() => {
+        await client.createIfNotExists(doc).then(() => {
 
             //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
             navigate('/', {replace : true});
             alert('created');
         });
-        
     };//responseGoogle
     
     return (
