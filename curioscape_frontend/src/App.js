@@ -12,6 +12,10 @@ const App = () => {
     const User = localStorage.getItem('user') !== 'undefined' 
     ? JSON.parse(localStorage.getItem('user'))
     : localStorage.clear();
+
+    //if user info doesn't exists from the localstorage, then navigate to login
+    if(!User) 
+      navigate("/login");
   }, [])
 
   return (
