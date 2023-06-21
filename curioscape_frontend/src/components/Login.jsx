@@ -56,7 +56,9 @@ const Login = () => {
         
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, picture, sub} = decodedResponse;
-        console.log(name, picture, sub);
+        alert(name);
+        alert(picture);
+        alert(sub);
         // console.log('picture >> '+ picture);
 
         // Upload the image
@@ -76,8 +78,8 @@ const Login = () => {
         createIfNotExists method is used to check if a document with the given _id (Google ID) exists and create it if it doesn't.
         After the document is created, it uses the navigate function, to navigate to the home page ('/')
         */
-        await client.createIfNotExists(doc).then(() => {
-
+        // await client.createIfNotExists(doc).then(() => {
+        await client.create(doc).then(() => {
             //{replace : true} => current route in the browser's history should be replaced with the new route instead of adding a new entry to the history stack
             navigate('/', {replace : true});
             alert('created');
