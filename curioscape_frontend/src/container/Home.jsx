@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Sidebar from '../components/Sidebar';
+import { userQuery  } from '../utils/data';
+import {client} from '../client';
 
 const Home = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   //fetching user info from the localstorage
   const userInfo = localStorage.getItem('user') !== 'undefined'
@@ -10,7 +12,11 @@ const Home = () => {
   : localStorage.clear();
 
   useEffect(() => {
-    const query = user
+
+    const query = userQuery('110803704650836207733');//id
+    client.fetch(query).then((data) => {
+      setUser(data);
+    });
   }, []);
 
   return (
