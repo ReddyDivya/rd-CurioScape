@@ -35,6 +35,19 @@ export const categories = [
         name : 'Zero to One',
         image: 'https://i.pinimg.com/564x/4e/63/1f/4e631ff10006b9f265f074c2a7878412.jpg',
     },
+    {
+        name : '21 Lessons for the 21st Century',
+        image: 'https://i.pinimg.com/564x/11/c8/7e/11c87e759e65eed5cb888d13de678f25.jpg',
+    },
+    {
+        name : 'The Alchemist',
+        image: 'https://i.pinimg.com/564x/b9/03/f7/b903f7175add67ba0f7d216e12cf2057.jpg',
+    },
+    {
+        name : 'The light we cannot see',
+        image: 'https://i.pinimg.com/564x/26/57/2a/26572ac6538a5eaa769f91bd5f1062a7.jpg',
+    },
+
 ]
 export const userQuery = (userId) => {
     const query = `*[_type == "user" && _id == '${userId}']`;
