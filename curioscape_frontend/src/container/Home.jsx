@@ -19,14 +19,12 @@ const Home = () => {
   : localStorage.clear();
 
   useEffect(() => {
-    console.log('userinfo >>> '+ userInfo?.sub);
-    const query = userQuery(userInfo?.sub);//id
-    
+    const query = userQuery(userInfo?.sub);//google_id
+
     client.fetch(query).then((data) => {
       setUser(data[0]);
+      console.log(data[0]);
     });
-
-    console.log('data >> '+ user.image);
   }, []);
 
   return (
