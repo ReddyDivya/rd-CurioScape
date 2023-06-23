@@ -23,7 +23,6 @@ const Home = () => {
 
     client.fetch(query).then((data) => {
       setUser(data[0]);
-      console.log(data[0]);
     });
   }, []);
 
@@ -48,6 +47,11 @@ const Home = () => {
     (flex-col)items-center: aligns the flex items along the cross axis (horizontally in this case) and centers them within the container. It horizontally aligns the items at the center of the container.
 
     shadow-md: adds a medium-sized shadow to the element, giving it a three-dimensional appearance. 
+    fixed: applies the CSS position: fixed property to the element. It fixes the element's position relative to the viewport, so it remains in a fixed position even when the user scrolls.
+    w-4/5: sets the width of the element to 80% of its parent container. The "4/5" is a fraction-based responsive sizing utility provided by Tailwind CSS.
+    overflow-y-auto: adds vertical scrollbars to the element when the content inside it exceeds its height. It enables scrolling in the vertical direction when necessary.
+    z-10: sets the z-index of the element to 10. The z-index determines the stacking order of elements on the z-axis. In this case, the element will be positioned above elements with lower z-index values.
+    animate-slide-in: applies an animation to the element called "slide-in." The animation slides the element into view using a predefined animation effect.
     */
 
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
@@ -67,8 +71,9 @@ const Home = () => {
           {toggleSidebar && (
               <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
                   <div className="absolute w-full flex justify-end items-center p-2">
-                    <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
+                    <AiFillCloseCircle fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(false)}/>
                   </div>
+                  <Sidebar closeToggle={setToggleSidebar} user={user && user}/>
               </div>  
           )}
       </div>
