@@ -31,8 +31,8 @@ const Login = () => {
         const decodedResponse = jwt_decode(response.credential);
 
         /*
-        stores the 'profileObj' property of the response object in the browser's local storage.
-        'profileObj' contains the user's profile information obtained from Google after successful authentication.
+        stores the 'decodedResponse' property of the response object in the browser's local storage.
+        'decodedResponse' contains the user's profile information obtained from Google after successful authentication.
         */
         localStorage.setItem('user', decodedResponse);
         
