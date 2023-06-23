@@ -34,8 +34,8 @@ const Login = () => {
         stores the 'decodedResponse' property of the response object in the browser's local storage.
         'decodedResponse' contains the user's profile information obtained from Google after successful authentication.
         */
-        localStorage.setItem('user', decodedResponse);
-        
+        localStorage.setItem('user', JSON.stringify(decodedResponse));
+
         //object destructuring to extract the name, googleId, and imageUrl properties from the 'profileObj'.
         const {name, picture, sub} = decodedResponse;
 

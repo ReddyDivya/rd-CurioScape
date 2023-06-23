@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import { HiMenu } from 'react-icons/hi';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { Link, Route, Routes } from 'react-router-dom';
+
 import {Sidebar, UserProfile} from '../components';
 import { userQuery  } from '../utils/data';
 import Pins from './Pins';
@@ -11,15 +15,18 @@ const Home = () => {
 
   //fetching user info from the localstorage
   const userInfo = localStorage.getItem('user') !== 'undefined'
-  ? localStorage.getItem('user') 
+  ? JSON.parse(localStorage.getItem('user')) 
   : localStorage.clear();
 
   useEffect(() => {
-
-    const query = userQuery(userInfo?._id);//id
+    console.log('userinfo >>> '+ userInfo?.sub);
+    const query = userQuery(userInfo?.sub);//id
+    
     client.fetch(query).then((data) => {
-      setUser(data);
+      setUser(data[0]);
     });
+
+    console.log('data >> '+ user.image);
   }, []);
 
   return (
