@@ -12,14 +12,18 @@ transition-all: applies a transition effect to all CSS properties of the element
 duration-200: sets the duration (in milliseconds) of the transition effect to 200 milliseconds. It determines how long the transition effect takes to complete.
 ease-in-out: It applies an easing effect that starts slowly, accelerates in the middle, and slows down towards the end of the transition.
 capitalize: capitalizes the text inside the element, making the first letter of each word in uppercase.
+text-base: sets the font size of the text to the base size. In Tailwind CSS, the base size is typically 1rem or 16 pixels by default. It establishes the initial font size for the element.
+2xl:text-xl: applies a responsive font size based on the screen size using the 2xl breakpoint. The 2xl breakpoint represents a large screen size or a specific breakpoint defined in your Tailwind CSS configuration.
 */
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
 const Sidebar = ({closeToggle, user}) => {
+  alert('closeToggle >>'+ closeToggle);
 
   //close the sidebar
-  const handleCloseSidebar = () => {alert('handleCloseSidebar');
+  const handleCloseSidebar = () => {
+    alert('handleCloseSidebar');
     if(closeToggle)
         closeToggle(false);
   };//handleCloseSidebar
