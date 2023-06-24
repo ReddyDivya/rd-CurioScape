@@ -6,6 +6,13 @@ import { IoIosArrowForward } from 'react-icons/io';
 import logo from '../assets/logo.png';
 import { categories } from '../utils/data';
 
+/*
+font-extrabold: It makes the text inside the element appear thicker or more prominent.
+transition-all: applies a transition effect to all CSS properties of the element. It enables smooth transitions when the properties of the element change.
+duration-200: sets the duration (in milliseconds) of the transition effect to 200 milliseconds. It determines how long the transition effect takes to complete.
+ease-in-out: It applies an easing effect that starts slowly, accelerates in the middle, and slows down towards the end of the transition.
+capitalize: capitalizes the text inside the element, making the first letter of each word in uppercase.
+*/
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
@@ -48,7 +55,7 @@ const Sidebar = ({closeToggle, user}) => {
                   Home
                 </NavLink>
 
-                {/*3. Displaying Book category images and name*/}
+                {/*3. Displaying categories list[images and name] vertically */}
                 <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover categories</h3>
                 {
                   categories.slice(0, categories.length - 1).map((category) => ( 
