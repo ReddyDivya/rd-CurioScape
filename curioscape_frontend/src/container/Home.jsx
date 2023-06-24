@@ -40,6 +40,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    //we demonstrate how to access the <div> element using the scrollRef.current
     scrollRef.current.scrollTo(0, 0);//Scroll to a specific position
   }, [])
 
@@ -105,7 +106,14 @@ const Home = () => {
         )}
       </div>
 
-      {/* Routing of user-profile and pins*/}
+      {/* 
+        - Routing of user-profile and pins
+        - the scrollRef ref object will hold a reference to the underlying DOM node of the <div> element.
+        - we can access and manipulate the <div> element in our React component code.
+        - allows you to reference the <div> and access its properties using scrollRef.current
+        - For example, we can read its properties, modify its styling, or perform actions like scrolling.
+      */}
+
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
