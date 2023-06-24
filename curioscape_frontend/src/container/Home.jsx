@@ -19,7 +19,12 @@ Routing of user-profile and pins.
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState({});
-  const scrollRef = useRef(null);
+  
+  /*
+  ref object is to reference an element in the DOM, typically for accessing or manipulating that element directly.
+  here, it appears to be intended for handling scrolling functionality.
+  */
+  const scrollRef = useRef(null);//ref object
 
   //fetching user info from the localstorage
   const userInfo = localStorage.getItem('user') !== 'undefined'
@@ -35,7 +40,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    scrollRef.current.scrollTo(0, 0);
+    scrollRef.current.scrollTo(0, 0);//Scroll to a specific position
   }, [])
 
   return (
@@ -76,6 +81,7 @@ const Home = () => {
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
             {/* Display menu icon for displaying sidebar on left side of the screen. */}
             <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)}/>
+            
             {/* Display logo in the middle of the screen. */}
             <Link to="/">
               <img src={logo} alt="logo" className="w-8" />
