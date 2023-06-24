@@ -71,18 +71,18 @@ const Home = () => {
         
         {/* Web-based Sidebar*/}
         {toggleSidebar && (
-          <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
-              <div className="absolute w-full flex justify-end items-center p-2">
+          <div className="fixed w-4/5bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+            <div className="absolute w-full flex justify-end items-center p-2">
               <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
-              </div>
-              <Sidebar closeToggle={setToggleSidebar} user={user && user}/>
-          </div>  
+            </div>
+            <Sidebar closeToggle={setToggleSidebar} user={user && user} />
+          </div>
         )}
       </div>
       <div className="pb-2 flex-1 h-screen overflow-y-scroll">
           <Routes>
             <Route path="/user-profile/:userId" element={<UserProfile/>}/>
-            <Route path="/*" element={<Pins user={user && user}/>}/>
+            {/* <Route path="/*" element={<Pins user={user && user}/>}/> */}
           </Routes>
       </div>  
     </div>
