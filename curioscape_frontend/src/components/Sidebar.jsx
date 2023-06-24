@@ -24,10 +24,13 @@ const Sidebar = ({closeToggle, user}) => {
     overflow-y-auto: adds vertical scrollbars to the element when the content inside it exceeds its height. It enables scrolling in the vertical direction when necessary.
     min-w-210: sets the minimum width property of the element to 210 pixels.
     hide-scrollbar: Custom class. It suggests that it is used to hide or style the appearance of the scrollbar on the element.
+    gap-2: sets the gap (space) between the child elements of a flex container to 2 units.
+    items-center: aligns the flex items along the horizontal axis of the flex container.
+
     */
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
         <div className="flex flex-col">
-            {/* Displaying logo */}
+            {/* 1. Displaying logo */}
             <Link to="/"
                 className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
                 onClick={handleCloseSidebar} 
@@ -36,7 +39,7 @@ const Sidebar = ({closeToggle, user}) => {
             </Link>
             <div className="flex flex-col gap-5">
                 
-                {/* Displaying Home icon */}
+                {/*2. Displaying Home icon */}
                 <NavLink to="/"
                 className={({isActive}) => (isActive ? isActiveStyle : isNotActiveStyle)}
                 onClick={handleCloseSidebar}
@@ -45,7 +48,7 @@ const Sidebar = ({closeToggle, user}) => {
                   Home
                 </NavLink>
 
-                {/* Displaying Book category images and name*/}
+                {/*3. Displaying Book category images and name*/}
                 <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover categories</h3>
                 {
                   categories.slice(0, categories.length - 1).map((category) => ( 
