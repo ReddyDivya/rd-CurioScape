@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { HiMenu } from 'react-icons/hi';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -12,6 +12,7 @@ import logo from '../assets/logo.png';
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState({});
+  const scrollRef = useRef(null);
 
   //fetching user info from the localstorage
   const userInfo = localStorage.getItem('user') !== 'undefined'
@@ -25,6 +26,10 @@ const Home = () => {
       setUser(data[0]);
     });
   }, []);
+
+  useEffect(() => {
+    scrollRef.current.scrollTo(0, 0);
+  }, [])
 
   return (
     /*
@@ -79,11 +84,11 @@ const Home = () => {
           </div>
         )}
       </div>
-      <div className="pb-2 flex-1 h-screen overflow-y-scroll">
-          <Routes>
-            <Route path="/user-profile/:userId" element={<UserProfile/>}/>
-            {/* <Route path="/*" element={<Pins user={user && user}/>}/> */}
-          </Routes>
+      <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
+        <Routes>
+          <Route path="/user-profile/:userId" element={<UserProfile />} />
+          <Route path="/*" element={<Pins user={user && user} />} />
+        </Routes>
       </div>  
     </div>
   )
