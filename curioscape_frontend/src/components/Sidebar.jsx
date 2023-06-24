@@ -19,11 +19,9 @@ const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
 const Sidebar = ({closeToggle, user}) => {
-  alert('closeToggle >>'+ closeToggle);
 
   //close the sidebar
   const handleCloseSidebar = () => {
-    alert('handleCloseSidebar');
     if(closeToggle)
         closeToggle(false);
   };//handleCloseSidebar
