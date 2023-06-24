@@ -12,12 +12,19 @@ const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 bo
 const Sidebar = ({closeToggle, user}) => {
 
   //close the sidebar
-  const handleCloseSidebar = () => {
+  const handleCloseSidebar = () => {alert('handleCloseSidebar');
     if(closeToggle)
         closeToggle(false);
   };//handleCloseSidebar
 
   return (
+    /*
+    flex-col: regardless of screen size, in flex container the flex items will be stacked vertically.
+    (flex-col)justify-between: aligns the flex items along the main axis (vertically in this case) and distributes the space between them. It pushes the first item to the start of the container, the last item to the end of the container, and evenly distributes the space between the items.
+    overflow-y-auto: adds vertical scrollbars to the element when the content inside it exceeds its height. It enables scrolling in the vertical direction when necessary.
+    min-w-210: sets the minimum width property of the element to 210 pixels.
+    hide-scrollbar: Custom class. It suggests that it is used to hide or style the appearance of the scrollbar on the element.
+    */
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
         <div className="flex flex-col">
             {/* Displaying logo */}
