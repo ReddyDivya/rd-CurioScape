@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import Login from './components/Login';
 import {GoogleOAuthProvider} from '@react-oauth/google';
+
+import Login from './components/Login';
 import Home from './container/Home';
 
 const App = () => {
@@ -21,8 +22,8 @@ const App = () => {
   return (
     <GoogleOAuthProvider clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'>
       <Routes>
-        <Route path="login" element={<Login/>}/>
-        <Route path="/" element={<Home/>}/>
+        <Route path="login" element={<Login />} />
+        <Route path="/*" element={<Home />} />
       </Routes>
     </GoogleOAuthProvider>
   )
