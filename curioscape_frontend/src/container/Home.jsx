@@ -9,6 +9,13 @@ import Pins from './Pins';
 import {client} from '../client';
 import logo from '../assets/logo.png';
 
+/*
+Displays:Home(horizontally)
+-----------------------------------------
+Row1 => Display menu icon on left side | logo in the middle | user-profile on the right side of the screen.
+Routing of user-profile and pins.
+*/
+
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState({});
@@ -64,12 +71,17 @@ const Home = () => {
         <Sidebar user={user && user} />
       </div>
       
+      {/* Display menu icon on left side | logo in the middle | user-profile on the right side of the screen. */}
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
+            {/* Display menu icon for displaying sidebar on left side of the screen. */}
             <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)}/>
+            {/* Display logo in the middle of the screen. */}
             <Link to="/">
               <img src={logo} alt="logo" className="w-8" />
             </Link>
+
+            {/* Display user-profile on the right side of the screen. */}
             <Link to={`user-profile/${user?._id}`}>
               <img src={user?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
             </Link>
@@ -78,6 +90,7 @@ const Home = () => {
         {/* Web-based Sidebar*/}
         {toggleSidebar && (
           <div className="fixed w-4/5bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+            {/* Close icon to close the sidebar */}
             <div className="absolute w-full flex justify-end items-center p-2">
               <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
             </div>
@@ -85,6 +98,8 @@ const Home = () => {
           </div>
         )}
       </div>
+
+      {/* Routing of user-profile and pins*/}
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />

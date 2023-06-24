@@ -7,6 +7,14 @@ import logo from '../assets/logo.png';
 import { categories } from '../utils/data';
 
 /*
+Displays:Sidebar(vertically)
+-----------------------------------------
+Row1 => Displaying logo
+Row2 => Displaying Home icon
+Row3 => Displaying categories list(image and name).
+Row4 => Display user-profile(image and name).
+*/
+/*
 font-extrabold: It makes the text inside the element appear thicker or more prominent.
 transition-all: applies a transition effect to all CSS properties of the element. It enables smooth transitions when the properties of the element change.
 duration-200: sets the duration (in milliseconds) of the transition effect to 200 milliseconds. It determines how long the transition effect takes to complete.
@@ -31,13 +39,13 @@ const Sidebar = ({closeToggle, user}) => {
     flex-col: regardless of screen size, in flex container the flex items will be stacked vertically.
     (flex-col)justify-between: aligns the flex items along the main axis (vertically in this case) and distributes the space between them. It pushes the first item to the start of the container, the last item to the end of the container, and evenly distributes the space between the items.
     overflow-y-auto: adds vertical scrollbars to the element when the content inside it exceeds its height. It enables scrolling in the vertical direction when necessary.
-    min-w-210: sets the minimum width property of the element to 210 pixels.
+    min-w-350: sets the minimum width property of the element to 210 pixels.
     hide-scrollbar: Custom class. It suggests that it is used to hide or style the appearance of the scrollbar on the element.
     gap-2: sets the gap (space) between the child elements of a flex container to 2 units.
     items-center: aligns the flex items along the horizontal axis of the flex container.
 
     */
-    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
+    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-350 hide-scrollbar">
         <div className="flex flex-col">
             {/* 1. Displaying logo */}
             <Link to="/"
@@ -74,6 +82,7 @@ const Sidebar = ({closeToggle, user}) => {
             </div>
         </div>
         {
+          /* 4. Display user-profile(image and name) */
           user && (
             <Link to={`user-profile/${user._id}`}
             className="flex my-5 mb-3 gap-2 p-2 items-center bg-white rounded-lg shadow-lg mx-3"
