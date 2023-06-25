@@ -97,3 +97,39 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc)
     },
   },
 }`;
+
+/*
+GROQ (Graph-Relational Object Queries)
+- This query starts with the * symbol, indicating that we want to retrieve any document from the dataset.
+- [_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*'] is the filter condition for selecting the documents.
+- title match '${searchTerm}*'" checks if the title field of the document matches the value of the searchTerm variable followed by any characters (* is a wildcard).
+- category match '${searchTerm}*'" checks if the category field of the document matches the value of the searchTerm variable followed by any characters.
+- about match '${searchTerm}*'" checks if the about field of the document matches the value of the searchTerm variable followed by any characters.
+*/
+export const searchQuery = (searchTerm) => {
+  const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']
+  {
+    image{
+      asset -> {
+        url
+      }
+    },
+    _id,
+    destination,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+    save[]{
+      _key,
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+  }`
+
+  return query;
+};//searchQuery
