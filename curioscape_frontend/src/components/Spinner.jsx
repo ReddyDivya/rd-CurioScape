@@ -1,5 +1,5 @@
 import React from 'react'
-import {Loader} from 'react-loader-spinner';//spinner
+import Loader from 'react-loader-spinner';//spinner
 
 const Spinner = ({message}) => {
   return (
