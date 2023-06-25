@@ -30,6 +30,8 @@ const Navbar = ({searchTerm, setSearchTerm, user}) => {
         </div>
       )
   }
+
+  return null;
 }
 
 export default Navbar
