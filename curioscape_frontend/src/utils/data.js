@@ -61,6 +61,7 @@ export const userQuery = (userId) => {
   const query = `*[_type == "user" && _id == '${userId}']`;
   return query;
 }
+
 /*
 GROQ (Graph-Relational Object Queries)
 - query written in the GROQ (Graph-Relational Object Queries) language.
