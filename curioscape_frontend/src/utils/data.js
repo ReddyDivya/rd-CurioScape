@@ -73,6 +73,11 @@ GROQ (Graph-Relational Object Queries)
 - The pipe symbol (|) is used to chain additional operations to the query.
 - order(_createdAt desc) is an ordering operation that sorts the selected documents based on the _createdAt field in descending order. 
 - This means the most recent pins will appear first.
+- save[]{ _key, postedBy -> { _id, userName, image } } retrieves the save field, which likely represents an array of references to other documents.
+    -> Inside each referenced document, we retrieve the _key field.
+    -> Additionally, we retrieve the postedBy field from the referenced document, which likely represents the user who saved the pin.
+    -> Inside the postedBy referenced document, we retrieve the _id, userName, and image fields.
+
 */
 export const feedQuery = `*[_type == "pin"] | order(_createdAt desc)
 {
@@ -105,6 +110,10 @@ GROQ (Graph-Relational Object Queries)
 - title match '${searchTerm}*'" checks if the title field of the document matches the value of the searchTerm variable followed by any characters (* is a wildcard).
 - category match '${searchTerm}*'" checks if the category field of the document matches the value of the searchTerm variable followed by any characters.
 - about match '${searchTerm}*'" checks if the about field of the document matches the value of the searchTerm variable followed by any characters.
+- save[]{ _key, postedBy -> { _id, userName, image } } retrieves the save field, which likely represents an array of references to other documents.
+    -> Inside each referenced document, we retrieve the _key field.
+    -> Additionally, we retrieve the postedBy field from the referenced document, which likely represents the user who saved the pin.
+    -> Inside the postedBy referenced document, we retrieve the _id, userName, and image fields.
 */
 export const searchQuery = (searchTerm) => {
   const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']
