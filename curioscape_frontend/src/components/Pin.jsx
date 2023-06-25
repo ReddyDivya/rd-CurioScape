@@ -1,8 +1,11 @@
 import React from 'react'
+import {urlFor} from '../client';
 
 const Pin = () => {
   return (
-    <div>Pin</div>
+    <div>
+      
+    </div>
   )
 }
 
