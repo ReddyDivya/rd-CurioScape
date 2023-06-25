@@ -50,11 +50,15 @@ const Feed = () => {
   const ideaName = categoryId || 'new'; //new category is created, if categoryId doesn't exists.
 
   if(loading)
-    return <Spinner message={`We are adding new ideas to your feed!`} />
+    return <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
 
   return (
     <div>
-          
+        {
+          pins && (
+            <MasonryLayout pins={pins}/>
+          )
+        } 
     </div>
   )
 }
