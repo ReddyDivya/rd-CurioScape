@@ -1,12 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 
+import {feedQuery} from "../utils/data";//fetching queries
 import {client} from "../client";
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
 const Feed = () => {
-  const [loading, setLoading] = useState(true);
+  /*
+  useParams() - hook provided by React Router. 
+  - It allows us to access the parameters from the URL in our component. 
+  - This hook returns an object containing the parameters.
+  - The syntax {categoryId} on the left side of the assignment is called object destructuring.
+  - it is extracting the categoryId property from the object returned by useParams().
+  ---------------------------------------------------------------------------------------------
+
+  */
+  const [pins, setPins] = useState();//pins
+  const [loading, setLoading] = useState(true);//to display spinner
+  const {categoryId} = useParams();//object destructuring
 
   if(loading)
     return <Spinner message={`We are adding new ideas to your feed!`} />
