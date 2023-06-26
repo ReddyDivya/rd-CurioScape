@@ -96,7 +96,7 @@ const Pin = ({pin}) => {
                       </a>  
                     )
                     :
-                    ()
+                    undefined
                   }
               </div>  
           </div>
