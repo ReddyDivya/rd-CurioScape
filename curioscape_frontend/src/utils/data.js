@@ -142,3 +142,43 @@ export const searchQuery = (searchTerm) => {
 
   return query;
 };//searchQuery
+
+//pin details query
+export const pinDetailQuery = (pinId) => {
+  const query = `*[_type == 'pin' && _id == '${pinId}']
+  {
+    image {
+      asset -> {
+        url
+      }
+    },
+    _id,
+    title,
+    about,
+    category,
+    destination,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+    save[]{
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+    comments[]{
+      comment,
+      key,
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    }
+  }`
+
+  return query;
+}; //pinDetailQuery
