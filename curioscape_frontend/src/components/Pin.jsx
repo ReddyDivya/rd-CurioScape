@@ -42,7 +42,7 @@ const Pin = ({pin}) => {
       }
       
       {
-        /* Display download icon on mouse hover */
+        /* Display 'download icon' and 'save' button on mouse hover */
         postHovered && ( 
           <div className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
             style={{ height: '100%' }}>
@@ -69,16 +69,20 @@ const Pin = ({pin}) => {
                     </button>
                   ):
                   (
-                      <button type="button"
-                      className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        savePin(_id);
-                      }}>
-                          {pin?.save?.length} {savingPost ? 'Saving' : 'Save'}
-                      </button>
+                    /* Display 'save' button */
+                    <button type="button"
+                    className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      savePin(_id);
+                    }}>
+                        {pin?.save?.length} {savingPost ? 'Saving' : 'Save'}
+                    </button>
                   )
                 }
+              </div>  
+              <div>
+                
               </div>  
           </div>
         )
