@@ -20,6 +20,14 @@ const Pin = ({pin}) => {
   ? JSON.parse(localStorage.getItem("user"))
   : localStorage.clear();
 
+  //filtering saved pins
+  let alreadySaved = pin?.save?.filter((item) => item?.postedBy?._id === user?.sub);
+
+  //save pin
+  const savePin = (id) => {
+
+  };//savePin
+
   return (
     /* Display image and display download icon on mouse hover */
     <div className='m-2'>
@@ -51,6 +59,25 @@ const Pin = ({pin}) => {
                       <MdDownloadForOffline />
                     </a>
                 </div>
+                {
+                  /* Already saved pins */
+                  alreadySaved.length !== 0 ?
+                  (
+                    <button type="button" className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none'>
+                      {pin?.save?.length} Saved
+                    </button>
+                  ):
+                  (
+                      <button type="button"
+                      className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        savePin(_id);
+                      }}>
+                          {pin?.save?.length} {savingPost ? 'Saving' : 'Save'}
+                      </button>
+                  )
+                }
               </div>  
           </div>
         )
