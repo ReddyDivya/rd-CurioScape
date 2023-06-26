@@ -29,6 +29,11 @@ const Pin = ({pin}) => {
 
   };//savePin
 
+  //delete pin
+  const deletePin = (id) => {
+
+  };//deletePin
+
   return (
     /* Display image and display download icon on mouse hover */
     <div className='m-2'>
@@ -97,6 +102,20 @@ const Pin = ({pin}) => {
                     )
                     :
                     undefined
+                  }
+
+                  {
+                    postedBy?._id === user?.sub && (
+                      <button type="button"
+                        className="bg-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-dark opacity-75 hover:opacity-100 outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          deletePin(_id);
+                        }}
+                      >
+                        <AiTwotoneDelete />
+                      </button>
+                    )
                   }
               </div>  
           </div>
