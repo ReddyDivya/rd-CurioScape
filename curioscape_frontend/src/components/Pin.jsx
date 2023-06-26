@@ -105,6 +105,7 @@ const Pin = ({pin}) => {
                   }
 
                   {
+                    //display delete icon
                     postedBy?._id === user?.sub && (
                       <button type="button"
                         className="bg-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-dark opacity-75 hover:opacity-100 outline-none"
@@ -117,13 +118,14 @@ const Pin = ({pin}) => {
                       </button>
                     )
                   }
-              </div>  
+              </div>
           </div>
-        )
-      }
-    </div>  
-      
+        )}
     </div>
+    <Link to={`/user-profile/${postedBy?._id}`}>
+        
+    </Link>
+  </div>
   )
 }
 
