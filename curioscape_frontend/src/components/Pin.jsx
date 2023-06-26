@@ -6,7 +6,15 @@ import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 
 import { client, urlFor } from '../client';
 
-const Pin = ({pin: {postedBy, image, _id, destination}}) => {
+const Pin = ({pin}) => {
+  const [postHovered, setPostHovered] = useState(false);
+  const [savingPost, setSavingPost] = useState(false);
+
+  const navigate = useNavigate();
+
+  //object destructuring
+  const {postedBy, image, _id, destination} = pin;
+
   return (
     <div className='m-1'>
       <img className="rounded-lg w-full" alt="user-post" src={(urlFor(image).width(250).url())}/>
