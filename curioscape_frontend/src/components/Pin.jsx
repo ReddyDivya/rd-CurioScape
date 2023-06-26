@@ -16,13 +16,14 @@ const Pin = ({pin}) => {
   const {postedBy, image, _id, destination} = pin;
 
   //fetching user from local storage
-  const user = localStorage.getItem("user") !== 'undefined' 
-  ? JSON.parse(localStorage.getItem("user"))
-  : localStorage.clear();
+  const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   //filtering saved pins
-  let alreadySaved = pin?.save?.filter((item) => item?.postedBy?._id === user?.sub);
-
+  let alreadySaved = pin?.save?.filter((item) => item?.postedBy?._id === user?.googleId);
+  
+  //fetching saved pins
+  alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
+  
   //save pin
   const savePin = (id) => {
 
