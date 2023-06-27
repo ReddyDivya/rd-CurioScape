@@ -1,52 +1,39 @@
 export const categories = [
     {
       name: 'Freedom Fighters',
-      image: 'https://i.pinimg.com/750x/eb/47/44/eb4744eaa3b3ccd89749fa3470e2b0de.jpg',
+      image: 'https://i.pinimg.com/564x/fc/13/e5/fc13e51e67084921b255e82df206b5e5.jpg',
     },  
     {
-      name: 'cars',
-      image: 'https://i.pinimg.com/750x/eb/47/44/eb4744eaa3b3ccd89749fa3470e2b0de.jpg',
+      name: 'Geography',
+      image: 'https://i.pinimg.com/564x/ec/b7/2b/ecb72bd7bf5985ac769405f5bf081d7b.jpg',
     },
     {
-      name: 'fitness',
-      image: 'https://i.pinimg.com/236x/25/14/29/251429345940a47490cc3d47dfe0a8eb.jpg',
+      name: 'Dance',
+      image: 'https://i.pinimg.com/236x/ef/98/10/ef98100fb8bccef8e41a7af65627e4e2.jpg',
     },
     {
-      name: 'wallpaper',
-      image: 'https://i.pinimg.com/236x/03/48/b6/0348b65919fcbe1e4f559dc4feb0ee13.jpg',
+      name: 'Monuments',
+      image: 'https://i.pinimg.com/564x/c3/9a/e8/c39ae87fbb0a2b1c1b291469bb167042.jpg',
     },
     {
-      name: 'websites',
-      image: 'https://i.pinimg.com/750x/66/b1/29/66b1296d36598122e6a4c5452b5a7149.jpg',
+      name: 'Yoga',
+      image: 'https://i.pinimg.com/564x/aa/7d/d0/aa7dd00b758e0b7ad3ee6dfad0c760c1.jpg',
     },
     {
-      name: 'photo',
-      image: 'https://i.pinimg.com/236x/72/8c/b4/728cb43f48ca762a75da645c121e5c57.jpg',
+      name: 'Science and Technology',
+      image: 'https://i.pinimg.com/564x/83/c9/2d/83c92d8f2cc3fcdc7a7bb681ace37edc.jpg',
     },
     {
-      name: 'food',
-      image: 'https://i.pinimg.com/236x/7d/ef/15/7def15ac734837346dac01fad598fc87.jpg',
+      name: 'Festivals',
+      image: 'https://i.pinimg.com/736x/1d/7e/05/1d7e05fabea82487d07f98f435de1d21.jpg',
     },
     {
-      name: 'nature',
-      image: 'https://i.pinimg.com/236x/b9/82/d4/b982d49a1edd984c4faef745fd1f8479.jpg',
+      name: 'Economy',
+      image: 'https://i.pinimg.com/564x/96/6f/45/966f452cf497949fc488efea4201c508.jpg',
     },
     {
-      name: 'art',
-      image: 'https://i.pinimg.com/736x/f4/e5/ba/f4e5ba22311039662dd253be33bf5f0e.jpg',
-    }, {
-      name: 'travel',
-      image: 'https://i.pinimg.com/236x/fa/95/98/fa95986f2c408098531ca7cc78aee3a4.jpg',
-    },
-    {
-      name: 'quotes',
-      image: 'https://i.pinimg.com/236x/46/7c/17/467c17277badb00b638f8ec4da89a358.jpg',
-    }, {
-      name: 'cats',
-      image: 'https://i.pinimg.com/236x/6c/3c/52/6c3c529e8dadc7cffc4fddedd4caabe1.jpg',
-    }, {
-      name: 'dogs',
-      image: 'https://i.pinimg.com/236x/1b/c8/30/1bc83077e363db1a394bf6a64b071e9f.jpg',
+      name: 'Cuisine',
+      image: 'https://i.pinimg.com/564x/10/64/ae/1064ae327eb43857d07816c0760f3f91.jpg',
     },
     {
       name: 'others',
