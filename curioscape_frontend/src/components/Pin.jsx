@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
+import { v4 as uuidv4 } from 'uuid';
 
 import { client, urlFor } from '../client';
 
@@ -27,7 +28,7 @@ const Pin = ({pin}) => {
   //save pin
   const savePin = (id) => {
 
-    //if already saved is not available
+    //save pin only if it's not already saved
     if (alreadySaved?.length === 0) {
       setSavingPost(true);
 
@@ -42,9 +43,12 @@ const Pin = ({pin}) => {
           _ref: user?.sub,
         },
       }])
-
+      .commit()
+      .then(() => {
+        window.location.reload();
+        setSavingPost(false);
+      });
     }
-    
   };//savePin
 
   //delete pin
