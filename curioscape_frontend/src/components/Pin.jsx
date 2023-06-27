@@ -20,11 +20,11 @@ const Pin = ({pin}) => {
   const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   //filtering saved pins
-  let alreadySaved = pin?.save?.filter((item) => item?.postedBy?._id === user?.googleId);
-  
+  let alreadySaved = pin?.save?.filter((item) => item?.postedBy?._id === user?.sub);
+
   //fetching saved pins
   alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
-  
+
   //save pin
   const savePin = (id) => {
 
@@ -45,8 +45,8 @@ const Pin = ({pin}) => {
       }])
       .commit()
       .then(() => {
-        window.location.reload();
         setSavingPost(false);
+        window.location.reload();
       });
     }
   };//savePin
