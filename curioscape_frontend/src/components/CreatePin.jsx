@@ -20,6 +20,57 @@ const CreatePin = () => {
 
   const navigate = useNavigate();
 
+  //uploadImage
+  const uploadImage = (e) => {
+
+    const selectedFile = e.target.files[0];
+    
+    // uploading asset to sanity
+    if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
+      setWrongImageType(false);
+      setLoading(true);//display spinner
+      client.assets
+        .upload('image', selectedFile, 
+          { contentType: selectedFile.type, 
+            filename: selectedFile.name 
+          }
+        )
+        .then((document) => {
+          setImageAsset(document);//insert image to sanity
+          setLoading(false);//hide spinner
+        })
+        .catch((error) => {
+          console.log('Upload failed:', error.message);
+        });
+    } 
+    else //wrong image type case
+    {
+      setLoading(false);//hide spinner
+      setWrongImageType(true);//set wrong image type
+    }
+  };//uploadImage
+
+  //save pin
+  const savePin = () => {
+    if(title && about && destination && imageAsset?._id && category)
+    {
+      const doc = {
+        _type: 'pin',
+        title,
+        about,
+        destination,
+        image: {
+          _type: 'image',
+          asset:{
+            _type:'reference',
+            _ref: imageAsset?._id,
+          }
+        }
+
+      };//doc
+    }//if
+  };//savePin 
+
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
         {
