@@ -12,7 +12,7 @@ const CreatePin = ({user}) => {
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
-  const [destination, setDestination] = useState();
+  const [destination, setDestination] = useState();//link
   const [fields, setFields] = useState();
   const [category, setCategory] = useState();
   const [imageAsset, setImageAsset] = useState();
@@ -77,7 +77,7 @@ const CreatePin = ({user}) => {
 
       //create doc in sanity
       client.create(doc).then(() => {
-        navigate('/');
+        navigate('/');//navigate to home component
       })
     }//if
     else
