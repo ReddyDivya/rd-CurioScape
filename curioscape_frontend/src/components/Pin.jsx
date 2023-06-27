@@ -27,6 +27,24 @@ const Pin = ({pin}) => {
   //save pin
   const savePin = (id) => {
 
+    //if already saved is not available
+    if (alreadySaved?.length === 0) {
+      setSavingPost(true);
+
+      client
+      .patch(id)
+      .setIfMissing({save: []})
+      .insert('after', 'save[-1]', [{
+        _key: uuidv4(),
+        userId: user?.sub,
+        postedBy: {
+          _type: 'postedBy',
+          _ref: user?.sub,
+        },
+      }])
+
+    }
+    
   };//savePin
 
   //delete pin
