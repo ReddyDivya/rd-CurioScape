@@ -59,16 +59,35 @@ const CreatePin = () => {
         title,
         about,
         destination,
-        image: {
+        image: //saving image
+        {
           _type: 'image',
           asset:{
             _type:'reference',
             _ref: imageAsset?._id,
           }
-        }
-
+        },
+        userId : user._id,
+        postedBy: {
+          _type:'postedBy',
+          _ref: user._id,
+        },
+        category,
       };//doc
+
+      //create doc in sanity
+      client.create(doc).then(() => {
+        navigate('/');
+      })
     }//if
+    else
+    {
+        setFields(true);
+
+        setTimeout(() => {
+          setFields(false);
+        }, 2000);
+    }//else
   };//savePin 
 
   return (
