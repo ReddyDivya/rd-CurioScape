@@ -26,7 +26,7 @@ const Search = () => {
         setLoading(false);//hide spinner
       });
     }//else
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div>
