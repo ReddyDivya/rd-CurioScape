@@ -4,7 +4,7 @@ import { client } from '../client';
 import { feedQuery, searchQuery } from '../utils/data';
 import Spinner from './Spinner';
 
-const Search = () => {
+const Search = ({searchTerm}) => {
   const [pins, setPins] = useState(); //show pins
   const [loading, setLoading] = useState(false);//show spinner
 
