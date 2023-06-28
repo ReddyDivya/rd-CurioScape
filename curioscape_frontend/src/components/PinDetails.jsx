@@ -46,7 +46,22 @@ const PinDetails = ({user}) => {
 
   //add comment
   const addComment = () => {
+    //comment exists
+    if (comment) {
+      setAddingComment(true);//adding comment
 
+      client.patch(pinId)
+      .setIfMissing({comments : []})
+      .insert('after', 'comment[-1]', 
+      [{comment, _key:uuidv4(), postedBy : {_type: 'postedBy', _ref: user._id}}])
+      .commit()
+      .then(() => {
+        fetchPinDetails();//fetch pin details
+        setComment('');//set comment empty
+        setAddingComment(false);
+      })
+
+    }//if
   };//addComment
 
   return (
