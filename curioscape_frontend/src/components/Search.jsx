@@ -16,12 +16,15 @@ const Search = () => {
       setLoading(true);//set loading
       const query = searchQuery(searchTerm.toLowerCase());
       client.fetch(query).then((data) => {
-        setPins(data);//set pins if available
+        setPins(data);//shows pins as per search term
         setLoading(false);//hide spinner
       });
     }//if
     else{
-
+      client.fetch(feedQuery).then((data) => {
+        setPins(data);//show all pins
+        setLoading(false);//hide spinner
+      });
     }//else
   }, []);
 
