@@ -67,7 +67,7 @@ const UserProfile = () => {
     navigate('/login');//navigate to login
   };//logout
 
-  //LogoutButton
+  //Logout
   const handleLogout = () => {
     try {
       googleLogout();//logout google account
@@ -77,7 +77,7 @@ const UserProfile = () => {
     } catch (error) {
       console.error('Logout failed:', error);
     }
-  };
+  };//handleLogout
 
   //displaying 'loading message'
   if (!user) return <Spinner message="Loading profile" />;
