@@ -74,18 +74,25 @@ const UserProfile = () => {
     <div className="relative pb-2 h-full justify-center items-center">
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
+          
+          {/* Display banner and user-profile image */}
           <div className="flex flex-col justify-center items-center">
+            {/* Display banner */}
             <img
               className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
-              src="https://source.unsplash.com/1600x900/?nature,photography,technology"
+              src="https://images.unsplash.com/photo-1624030275207-77bac1c83be3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
               alt="user-pic"
             />
+
+            {/* Display user-profile image */}
             <img
               className="rounded-full w-20 h-20 -mt-10 shadow-xl object-cover"
               src={user.image}
               alt="user-pic"
             />
           </div>
+
+          {/* Display user-profile name */}
           <h1 className="font-bold text-3xl text-center mt-3">
             {user.userName}
           </h1>
