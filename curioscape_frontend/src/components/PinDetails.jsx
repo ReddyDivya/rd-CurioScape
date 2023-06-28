@@ -60,9 +60,14 @@ const PinDetails = ({user}) => {
         setComment('');//set comment empty
         setAddingComment(false);
       })
-
     }//if
   };//addComment
+
+  if (!pinDetail) {
+    return (
+      <Spinner message="Showing pin" />
+    );
+  }//if
 
   return (
     <>
