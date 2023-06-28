@@ -27,7 +27,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   //fetching user info from localstorage
-  const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+  const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   //fetching user info using userquery
   useEffect(() => {
@@ -67,6 +67,18 @@ const UserProfile = () => {
     navigate('/login');//navigate to login
   };//logout
 
+  //LogoutButton
+  const handleLogout = () => {
+    try {
+      googleLogout();//logout google account
+      
+      localStorage.clear(); //clear browser storage
+      navigate('/login');//navigate to login
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   //displaying 'loading message'
   if (!user) return <Spinner message="Loading profile" />;
 
@@ -99,22 +111,14 @@ const UserProfile = () => {
 
           {/* Google Logout icon and logout functionality */}
           <div className="absolute top-0 z-1 right-0 p-2">
-            {userId === User.sub && (
-              <GoogleLogout
-              clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'
-                render={(renderProps) => (
-                  <button
-                    type="button"
-                    className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    <AiOutlineLogout color="red" fontSize={21} />
-                  </button>
-                )}
-                onLogoutSuccess={logout}
-                cookiePolicy="single_host_origin"
-              />
+            {userId === userInfo.sub && (
+              <button
+                type="button"
+                className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
+                onClick={handleLogout}
+              >
+                <AiOutlineLogout color="red" fontSize={21} />
+              </button>
             )}
           </div>
         </div>
