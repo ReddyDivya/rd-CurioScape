@@ -15,6 +15,17 @@ const activeBtnStyles = 'bg-red-500 text-white font-bold p-2 rounded-full w-20 o
 const notActiveBtnStyles = 'bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none';
 
 const UserProfile = () => {
+
+  const [user, setUser] = useState();//user
+  const [pins, setPins] = useState();//for showing pins
+  const [text, setText] = useState('Created');
+  const [activeBtn, setActiveBtn] = useState('created'); //active button
+  
+  //navigate
+  const navigate = useNavigate();
+
+  const { userId } = useParams();//params
+
   return (
     <div>UserProfile</div>
   )
