@@ -8,6 +8,10 @@ import MasonryLayout from './MasonryLayout';
 import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/data';//fetching the query
 import Spinner from './Spinner';
 
+/*
+Displays download icon | destination link | title and about | postedby's image and name | comment | add comment
+*/
+
 const PinDetails = ({user}) => {
   const { pinId } = useParams();//param
 
@@ -87,7 +91,7 @@ const PinDetails = ({user}) => {
               />
             </div>
             
-            {/*  */}
+            {/* Displays download icon | destination link | title and about | postedby's image and name | comment | add comment */}
             <div className="w-full p-5 flex-1 xl:min-w-620">
               <div className="flex items-center justify-between">
                 
@@ -116,13 +120,13 @@ const PinDetails = ({user}) => {
                 <p className="mt-3">{pinDetail.about}</p>
               </div>
 
-              {/* Displays postedby's image and name*/}
+              {/* Displays postedby's image and name section */}
               <Link to={`/user-profile/${pinDetail?.postedBy._id}`} className="flex gap-2 mt-5 items-center bg-white rounded-lg ">
                 <img src={pinDetail?.postedBy.image} className="w-10 h-10 rounded-full" alt="user-profile" />
                 <p className="font-bold">{pinDetail?.postedBy.userName}</p>
               </Link>
 
-              {/* Displays comment details */}
+              {/* Displays comment details section */}
               <h2 className="mt-5 text-2xl">Comments</h2>
               <div className="max-h-370 overflow-y-auto">
                 {pinDetail?.comments?.map((item) => (
