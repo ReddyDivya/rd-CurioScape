@@ -25,9 +25,24 @@ const PinDetails = ({user}) => {
       client.fetch(`${query}`)
       .then((data) => {
         setPinDetail(data[0]);//set pin details
+
+        //pin details exists
+        if(data[0])
+        {
+          const query1 = pinDetailMorePinQuery(data[0]);
+
+          client.fetch(query1)
+          .then((result) => {
+            setPins(result);//set pins
+          });
+        }//if
       })
     }//if
   };//fetchPinDetails 
+
+  useEffect(() => {
+    fetchPinDetails();
+  }, [pinId]);
 
   //add comment
   const addComment = () => {
