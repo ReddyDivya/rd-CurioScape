@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useParams, useNavigate } from 'react-router-dom';
-import {googleLogout } from '@react-oauth/google';
+import { googleLogout } from '@react-oauth/google';
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
 import { client } from '../client';
@@ -100,7 +100,7 @@ const UserProfile = () => {
           {/* Google Logout icon and logout functionality */}
           <div className="absolute top-0 z-1 right-0 p-2">
             {userId === User.sub && (
-              <googleLogout
+              <GoogleLogout
               clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'
                 render={(renderProps) => (
                   <button
