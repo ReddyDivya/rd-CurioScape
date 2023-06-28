@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useParams, useNavigate } from 'react-router-dom';
-import { GoogleLogout } from 'react-google-login';
+import {googleLogout } from '@react-oauth/google';
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
 import { client } from '../client';
@@ -18,7 +18,7 @@ const UserProfile = () => {
 
   const { userId } = useParams();//params
 
-  const [user, setUser] = useState();//user
+  const [user, setUser] = useState({});//user
   const [pins, setPins] = useState();//for showing pins
   const [text, setText] = useState('Created');
   const [activeBtn, setActiveBtn] = useState('created'); //active button
@@ -100,8 +100,8 @@ const UserProfile = () => {
           {/* Google Logout icon and logout functionality */}
           <div className="absolute top-0 z-1 right-0 p-2">
             {userId === User.sub && (
-              <GoogleLogout
-                clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
+              <googleLogout
+              clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'
                 render={(renderProps) => (
                   <button
                     type="button"
