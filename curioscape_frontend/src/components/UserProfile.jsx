@@ -60,13 +60,6 @@ const UserProfile = () => {
     }
   }, [text, userId]);
 
-  //logout
-  const logout = () => {
-    localStorage.clear();
-
-    navigate('/login');//navigate to login
-  };//logout
-
   //Logout
   const handleLogout = () => {
     try {
