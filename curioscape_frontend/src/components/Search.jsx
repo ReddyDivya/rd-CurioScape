@@ -8,6 +8,23 @@ const Search = () => {
   const [pins, setPins] = useState(); //show pins
   const [loading, setLoading] = useState(false);//show spinner
 
+  useEffect(() => {
+
+    //if searchitem is not empty
+    if(searchTerm !== '')
+    {
+      setLoading(true);//set loading
+      const query = searchQuery(searchTerm.toLowerCase());
+      client.fetch(query).then((data) => {
+        setPins(data);//set pins if available
+        setLoading(false);//hide spinner
+      });
+    }//if
+    else{
+
+    }//else
+  }, []);
+
   return (
     <div>
       {loading && <Spinner message="Searching pins" />}
