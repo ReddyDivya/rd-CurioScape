@@ -96,8 +96,10 @@ const UserProfile = () => {
           <h1 className="font-bold text-3xl text-center mt-3">
             {user.userName}
           </h1>
+
+          {/* Google Logout icon and logout functionality */}
           <div className="absolute top-0 z-1 right-0 p-2">
-            {userId === User.googleId && (
+            {userId === User.sub && (
               <GoogleLogout
                 clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
                 render={(renderProps) => (
@@ -116,6 +118,8 @@ const UserProfile = () => {
             )}
           </div>
         </div>
+
+        {/* Display 'created' and 'saved' buttons */}
         <div className="text-center mb-7">
           <button
             type="button"
@@ -138,11 +142,13 @@ const UserProfile = () => {
             Saved
           </button>
         </div>
-
+        
+        {/* Displays user-profiles pins */}
         <div className="px-2">
           <MasonryLayout pins={pins} />
         </div>
-
+        
+        {/* Displays 'No Pins Found!' message if not user-profiles pins exists */}
         {pins?.length === 0 && (
         <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
           No Pins Found!
