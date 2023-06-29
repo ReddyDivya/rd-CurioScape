@@ -16,6 +16,10 @@ export const categories = [
       image: 'https://i.pinimg.com/564x/c3/9a/e8/c39ae87fbb0a2b1c1b291469bb167042.jpg',
     },
     {
+      name: 'Temples',
+      image: 'https://i.pinimg.com/236x/04/45/39/044539199bc3773a552334150791d76d.jpg',
+    },
+    {
       name: 'Yoga',
       image: 'https://i.pinimg.com/564x/aa/7d/d0/aa7dd00b758e0b7ad3ee6dfad0c760c1.jpg',
     },
