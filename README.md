@@ -5,11 +5,9 @@ CurioScape is a React-based social media app that enables users to share cherish
 ---
 ## Demo of CurioScape
 
+https://github.com/ReddyDivya/CurioScape/assets/34181144/b10f4b75-ef4a-48f8-b1c2-844362ca081d
 
-![curioscape-1](https://github.com/ReddyDivya/CurioScape/assets/34181144/37746f06-b3c8-477e-93f0-20a371ce436d)
-
-![curioscape-2](https://github.com/ReddyDivya/CurioScape/assets/34181144/ec9db0ad-aa91-48d3-a985-4aa7a3f84421)
 
 
 # Mobile Responsive
-![curioscape-3](https://github.com/ReddyDivya/CurioScape/assets/34181144/f856641d-f115-4b8a-8fcc-b400a786c23c)
+![curioscape-mobile](https://github.com/ReddyDivya/CurioScape/assets/34181144/45cf609a-e090-46d6-a00c-436f316c5202)
