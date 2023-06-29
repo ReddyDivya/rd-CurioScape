@@ -4,7 +4,7 @@ export const categories = [
       image: 'https://i.pinimg.com/564x/fc/13/e5/fc13e51e67084921b255e82df206b5e5.jpg',
     },  
     {
-      name: 'Geography',
+      name: 'Tourism',
       image: 'https://i.pinimg.com/564x/ec/b7/2b/ecb72bd7bf5985ac769405f5bf081d7b.jpg',
     },
     {
