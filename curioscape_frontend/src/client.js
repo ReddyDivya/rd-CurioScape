@@ -12,11 +12,11 @@ export const client = createClient({
 
   //options
   //process.env => environment variables
-  projectId : 'x8qy9fhj',
-  dataset:'production',
-  apiVersion:'2023-06-08',
+  projectId : '',
+  dataset:'',
+  apiVersion:'',
   useCdn:true,
-  token:'skiY7gkB136qlWccUiwH7exysNSJjyVwkbv0VTHXjkLf31Xmliav8zHUhVEh5M22wut6UsQZ3KkQdlU9v1h1bmkgceG55An5Dd3QJdnaGlAVphdEzNiOmKFBLFLmTteTyNLaEt9Mvcr0YaBv40ThEn4f7GMFLxr0JIoTg7PCnqbCPnxHkeZI',
+  token:'',
 })
 
 //creates an image URL builder instance by invoking the imageUrlBuilder function and passing in the client instance created in the previous step.
