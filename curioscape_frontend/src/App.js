@@ -20,7 +20,7 @@ const App = () => {
   }, [])
 
   return (
-    <GoogleOAuthProvider clientId='913338086499-q1ef425rdmicqv0ssg63i8ni42u884sa.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId=''>
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="/*" element={<Home />} />
