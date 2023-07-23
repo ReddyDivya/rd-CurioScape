@@ -5,10 +5,10 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'CurioScape',
+  title: '',
 
-  projectId: 'x8qy9fhj',
-  dataset: 'production',
+  projectId: '',
+  dataset: '',
 
   plugins: [deskTool(), visionTool()],
 
